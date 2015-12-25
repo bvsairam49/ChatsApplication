@@ -100,24 +100,22 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
   
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
-        
-        let editAction = UITableViewRowAction(style: .Default, title: "Edit",handler: { (action: UITableViewRowAction!,indexPath: NSIndexPath!) in
-            
-            // maybe show an action sheet with more options
-            self.tableView.setEditing(false, animated: false)
-            
-            
-            }
-        );
+       
         let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete",
             handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
                 
-                
-                //self.deleteModelAt(indexPath.row)
+                self.deleteChatAt(indexPath.row)
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic);
             }
         );
-        return [deleteAction, editAction]
+        return [deleteAction]
+
+    }
+    func deleteChatAt(row:Int){
+        
+        let chat:Chat = self.chatsArray.objectAtIndex(row) as! Chat
+        ModelManager.getInstance().deleteChatData(chat.chat_id)
+        self.refreshView()
 
     }
     //MARK: UIButton Action methods
@@ -191,9 +189,13 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
             let base64String = imageData!.base64EncodedStringWithOptions(
                 NSDataBase64EncodingOptions(rawValue: 0))
             
+            let dayTimePeriodFormatter = NSDateFormatter()
+            dayTimePeriodFormatter.dateFormat = "EEEE, h a"
+            
+            let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
 
             let chat:Chat = self.chatsArray.objectAtIndex((self.indexPath!.row)) as! Chat
-            ModelManager.getInstance().updateChatImage(chat.chat_id, image:base64String )
+            ModelManager.getInstance().updateChatImage(chat.chat_id, image:base64String, time:dateString )
             self.refreshView()
         }
         

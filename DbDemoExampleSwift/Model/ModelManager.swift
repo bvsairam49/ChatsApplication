@@ -22,26 +22,20 @@ class ModelManager: NSObject {
         }
         return sharedInstance
     }
-    
-    func addStudentData(studentInfo: StudentInfo) -> Bool {
-        sharedInstance.database!.open()
-        let isInserted = sharedInstance.database!.executeUpdate("INSERT INTO student_info (Name, Marks) VALUES (?, ?)", withArgumentsInArray: [studentInfo.Name, studentInfo.Marks])
-        sharedInstance.database!.close()
-        return isInserted
-    }
+  
     func updateChatCounter(chat_id: Int, counterNuber:Int) -> Bool {
         sharedInstance.database!.open()
         let isUpdated = sharedInstance.database!.executeUpdate("UPDATE Chats SET count=? WHERE chat_id=?", withArgumentsInArray: [counterNuber,chat_id])
         sharedInstance.database!.close()
         return isUpdated
     }
-    func updateChatImage(chat_id: Int, image:String) -> Bool {
+    func updateChatImage(chat_id: Int, image:String, time:String) -> Bool {
         sharedInstance.database!.open()
-        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE Chats SET image=? WHERE chat_id=?", withArgumentsInArray: [image,chat_id])
+        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE Chats SET image=?, time=?  WHERE chat_id=?", withArgumentsInArray: [image,time,chat_id])
         sharedInstance.database!.close()
         return isUpdated
     }
-    func deleteStudentData(chat_id: String) -> Bool {
+    func deleteChatData(chat_id: Int) -> Bool {
         sharedInstance.database!.open()
         let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM Chats WHERE chat_id=?", withArgumentsInArray: [chat_id])
         sharedInstance.database!.close()
