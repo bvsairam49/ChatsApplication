@@ -105,7 +105,7 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
             handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
                 
                 self.deleteChatAt(indexPath.row)
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic);
+                //self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic);
             }
         );
         return [deleteAction]
@@ -190,7 +190,7 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
                 NSDataBase64EncodingOptions(rawValue: 0))
             
             let dayTimePeriodFormatter = NSDateFormatter()
-            dayTimePeriodFormatter.dateFormat = "EEEE, h a"
+            dayTimePeriodFormatter.dateFormat = "yyyy MMM EEEE HH:mm"
             
             let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
 

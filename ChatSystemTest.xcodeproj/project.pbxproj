@@ -41,13 +41,13 @@
 		33840CB11C2D6744001B2BA7 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		33840CB51C2D6B2A001B2BA7 /* Chats.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chats.sqlite; sourceTree = "<group>"; };
 		4C971E111BBE4BA6008411F6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		EAD5F4C51B7A073200EBC695 /* DbDemoExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DbDemoExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD5F4C51B7A073200EBC695 /* ChatSystemTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatSystemTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD5F4C91B7A073200EBC695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAD5F4CA1B7A073200EBC695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAD5F4CF1B7A073200EBC695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAD5F4D11B7A073200EBC695 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EAD5F4D41B7A073200EBC695 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EAD5F4DA1B7A073200EBC695 /* DbDemoExampleSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DbDemoExampleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD5F4DA1B7A073200EBC695 /* ChatSystemTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatSystemTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD5F4DF1B7A073200EBC695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAD5F4E01B7A073200EBC695 /* DbDemoExampleSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbDemoExampleSwiftTests.swift; sourceTree = "<group>"; };
 		EAD5F4FF1B7A080700EBC695 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 		EAD5F4C61B7A073200EBC695 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EAD5F4C51B7A073200EBC695 /* DbDemoExampleSwift.app */,
-				EAD5F4DA1B7A073200EBC695 /* DbDemoExampleSwiftTests.xctest */,
+				EAD5F4C51B7A073200EBC695 /* ChatSystemTest.app */,
+				EAD5F4DA1B7A073200EBC695 /* ChatSystemTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,9 +197,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EAD5F4C41B7A073200EBC695 /* DbDemoExampleSwift */ = {
+		EAD5F4C41B7A073200EBC695 /* ChatSystemTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAD5F4E41B7A073200EBC695 /* Build configuration list for PBXNativeTarget "DbDemoExampleSwift" */;
+			buildConfigurationList = EAD5F4E41B7A073200EBC695 /* Build configuration list for PBXNativeTarget "ChatSystemTest" */;
 			buildPhases = (
 				EAD5F4C11B7A073200EBC695 /* Sources */,
 				EAD5F4C21B7A073200EBC695 /* Frameworks */,
@@ -209,14 +209,14 @@
 			);
 			dependencies = (
 			);
-			name = DbDemoExampleSwift;
+			name = ChatSystemTest;
 			productName = DbDemoExampleSwift;
-			productReference = EAD5F4C51B7A073200EBC695 /* DbDemoExampleSwift.app */;
+			productReference = EAD5F4C51B7A073200EBC695 /* ChatSystemTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EAD5F4D91B7A073200EBC695 /* DbDemoExampleSwiftTests */ = {
+		EAD5F4D91B7A073200EBC695 /* ChatSystemTestTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAD5F4E71B7A073200EBC695 /* Build configuration list for PBXNativeTarget "DbDemoExampleSwiftTests" */;
+			buildConfigurationList = EAD5F4E71B7A073200EBC695 /* Build configuration list for PBXNativeTarget "ChatSystemTestTests" */;
 			buildPhases = (
 				EAD5F4D61B7A073200EBC695 /* Sources */,
 				EAD5F4D71B7A073200EBC695 /* Frameworks */,
@@ -227,9 +227,9 @@
 			dependencies = (
 				EAD5F4DC1B7A073200EBC695 /* PBXTargetDependency */,
 			);
-			name = DbDemoExampleSwiftTests;
+			name = ChatSystemTestTests;
 			productName = DbDemoExampleSwiftTests;
-			productReference = EAD5F4DA1B7A073200EBC695 /* DbDemoExampleSwiftTests.xctest */;
+			productReference = EAD5F4DA1B7A073200EBC695 /* ChatSystemTest.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +252,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EAD5F4C01B7A073200EBC695 /* Build configuration list for PBXProject "DbDemoExampleSwift" */;
+			buildConfigurationList = EAD5F4C01B7A073200EBC695 /* Build configuration list for PBXProject "ChatSystemTest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -265,8 +265,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EAD5F4C41B7A073200EBC695 /* DbDemoExampleSwift */,
-				EAD5F4D91B7A073200EBC695 /* DbDemoExampleSwiftTests */,
+				EAD5F4C41B7A073200EBC695 /* ChatSystemTest */,
+				EAD5F4D91B7A073200EBC695 /* ChatSystemTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -324,7 +324,7 @@
 /* Begin PBXTargetDependency section */
 		EAD5F4DC1B7A073200EBC695 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EAD5F4C41B7A073200EBC695 /* DbDemoExampleSwift */;
+			target = EAD5F4C41B7A073200EBC695 /* ChatSystemTest */;
 			targetProxy = EAD5F4DB1B7A073200EBC695 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -440,7 +440,7 @@
 				INFOPLIST_FILE = DbDemoExampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tag.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ChatSystemTest;
 				SWIFT_OBJC_BRIDGING_HEADER = "./DbDemoExampleSwift/DbDemoExampleSwift-Bridging-Header.h";
 			};
 			name = Debug;
@@ -452,7 +452,7 @@
 				INFOPLIST_FILE = DbDemoExampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tag.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ChatSystemTest;
 				SWIFT_OBJC_BRIDGING_HEADER = "./DbDemoExampleSwift/DbDemoExampleSwift-Bridging-Header.h";
 			};
 			name = Release;
@@ -472,8 +472,8 @@
 				INFOPLIST_FILE = DbDemoExampleSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tag.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DbDemoExampleSwift.app/DbDemoExampleSwift";
+				PRODUCT_NAME = ChatSystemTest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatSystemTest.app/ChatSystemTest";
 			};
 			name = Debug;
 		};
@@ -488,15 +488,15 @@
 				INFOPLIST_FILE = DbDemoExampleSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tag.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DbDemoExampleSwift.app/DbDemoExampleSwift";
+				PRODUCT_NAME = ChatSystemTest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatSystemTest.app/ChatSystemTest";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EAD5F4C01B7A073200EBC695 /* Build configuration list for PBXProject "DbDemoExampleSwift" */ = {
+		EAD5F4C01B7A073200EBC695 /* Build configuration list for PBXProject "ChatSystemTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAD5F4E21B7A073200EBC695 /* Debug */,
@@ -505,7 +505,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAD5F4E41B7A073200EBC695 /* Build configuration list for PBXNativeTarget "DbDemoExampleSwift" */ = {
+		EAD5F4E41B7A073200EBC695 /* Build configuration list for PBXNativeTarget "ChatSystemTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAD5F4E51B7A073200EBC695 /* Debug */,
@@ -514,7 +514,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAD5F4E71B7A073200EBC695 /* Build configuration list for PBXNativeTarget "DbDemoExampleSwiftTests" */ = {
+		EAD5F4E71B7A073200EBC695 /* Build configuration list for PBXNativeTarget "ChatSystemTestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAD5F4E81B7A073200EBC695 /* Debug */,

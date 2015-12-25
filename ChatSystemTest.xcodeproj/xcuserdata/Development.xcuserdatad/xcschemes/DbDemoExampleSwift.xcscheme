@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EAD5F4C41B7A073200EBC695"
-               BuildableName = "DbDemoExampleSwift.app"
-               BlueprintName = "DbDemoExampleSwift"
-               ReferencedContainer = "container:DbDemoExampleSwift.xcodeproj">
+               BuildableName = "ChatSystemTest.app"
+               BlueprintName = "ChatSystemTest"
+               ReferencedContainer = "container:ChatSystemTest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EAD5F4D91B7A073200EBC695"
-               BuildableName = "DbDemoExampleSwiftTests.xctest"
-               BlueprintName = "DbDemoExampleSwiftTests"
-               ReferencedContainer = "container:DbDemoExampleSwift.xcodeproj">
+               BuildableName = "ChatSystemTest.xctest"
+               BlueprintName = "ChatSystemTestTests"
+               ReferencedContainer = "container:ChatSystemTest.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EAD5F4C41B7A073200EBC695"
-            BuildableName = "DbDemoExampleSwift.app"
-            BlueprintName = "DbDemoExampleSwift"
-            ReferencedContainer = "container:DbDemoExampleSwift.xcodeproj">
+            BuildableName = "ChatSystemTest.app"
+            BlueprintName = "ChatSystemTest"
+            ReferencedContainer = "container:ChatSystemTest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EAD5F4C41B7A073200EBC695"
-            BuildableName = "DbDemoExampleSwift.app"
-            BlueprintName = "DbDemoExampleSwift"
-            ReferencedContainer = "container:DbDemoExampleSwift.xcodeproj">
+            BuildableName = "ChatSystemTest.app"
+            BlueprintName = "ChatSystemTest"
+            ReferencedContainer = "container:ChatSystemTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EAD5F4C41B7A073200EBC695"
-            BuildableName = "DbDemoExampleSwift.app"
-            BlueprintName = "DbDemoExampleSwift"
-            ReferencedContainer = "container:DbDemoExampleSwift.xcodeproj">
+            BuildableName = "ChatSystemTest.app"
+            BlueprintName = "ChatSystemTest"
+            ReferencedContainer = "container:ChatSystemTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
