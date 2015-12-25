@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class ProfilesTableViewController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
@@ -17,7 +18,12 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         chatsArray = NSMutableArray()
-
+        imagePicker.delegate = self
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -65,7 +71,24 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
         
         return cell!
     }
-  
+    func showCamera() {
+        if(!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
+            let alert = UIAlertView(title: "alert", message: "No Device Connected/Available", delegate: nil, cancelButtonTitle: "OK", otherButtonTitles: "Cancel")
+            alert.show()
+        }else if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            self.presentViewController(imagePicker, animated: false, completion: nil)
+        }
+    }
+    //Gallery Button Action
+    func showGallery() {
+        if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)){
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(imagePicker, animated: false, completion: nil)
+        }
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let chat:Chat = self.chatsArray.objectAtIndex((indexPath.row)) as! Chat
@@ -94,35 +117,58 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
     
     @IBAction func photoSelectButonClick(sender: AnyObject){
         
-        let buttonPosition = sender.convertPoint(CGPointZero, toView: self.tableView)
-        let indexPath = self.tableView.indexPathForRowAtPoint(buttonPosition)
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
         
-        let chat:Chat = self.chatsArray.objectAtIndex((indexPath?.row)!) as! Chat
-        
-        ModelManager.getInstance().updateChatCounter(chat.chat_id, counterNuber: chat.counnter+1)
-        
-        let alertController: UIAlertController = UIAlertController(title: "Change Map Type", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Back", style: UIAlertActionStyle.Cancel, handler: nil)
-        let button1action: UIAlertAction = UIAlertAction(title: "Camera"", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> () in
-            // doing something for "product page"
+        // 2
+        let deleteAction = UIAlertAction(title: "Camera", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            self.showCamera()
         })
-        let button2action: UIAlertAction = UIAlertAction(title: "Gallery", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> () in
-            // doing something for "video"
+        let saveAction = UIAlertAction(title: "Galler", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+            self.showGallery()
         })
-        alertController.addAction(cancelAction)
-        alertController.addAction(button1action)
-        alertController.addAction(button2action)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        //
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
         
-    
+        
+        // 4
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+
     }
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        var chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
-//        myImageView.contentMode = .ScaleAspectFit //3
-//        myImageView.image = chosenImage //4
-        dismissViewControllerAnimated(true, completion: nil) //5
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        //Selected Type Is Image
+        if mediaType.isEqualToString(kUTTypeImage as String) {
+            let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            
+            let imageData = UIImagePNGRepresentation(image!) //OR with path var url:NSURL = NSURL(string : "urlHere")!
+            let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+            
+            let indexPath = self.tableView.indexPathForSelectedRow
+
+            let chat:Chat = self.chatsArray.objectAtIndex((indexPath!.row)) as! Chat
+            ModelManager.getInstance().updateChatImage(chat.chat_id, image:base64String )
+            self.refreshView()
+        }
+        
+        
+     
+        
     }
     //MARK: Navigation methods
     

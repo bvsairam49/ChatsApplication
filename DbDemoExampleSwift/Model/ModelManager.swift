@@ -42,7 +42,12 @@ class ModelManager: NSObject {
         sharedInstance.database!.close()
         return isUpdated
     }
-
+    func updateChatImage(chat_id: Int, image:String) -> Bool {
+        sharedInstance.database!.open()
+        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE Chats SET image=? WHERE chat_id=?", withArgumentsInArray: [image,chat_id])
+        sharedInstance.database!.close()
+        return isUpdated
+    }
     func deleteStudentData(studentInfo: StudentInfo) -> Bool {
         sharedInstance.database!.open()
         let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM student_info WHERE RollNo=?", withArgumentsInArray: [studentInfo.RollNo])
