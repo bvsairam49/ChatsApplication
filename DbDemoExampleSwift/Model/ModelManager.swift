@@ -29,13 +29,6 @@ class ModelManager: NSObject {
         sharedInstance.database!.close()
         return isInserted
     }
-   
-    func updateStudentData(studentInfo: StudentInfo) -> Bool {
-        sharedInstance.database!.open()
-        let isUpdated = sharedInstance.database!.executeUpdate("UPDATE student_info SET Name=?, Marks=? WHERE RollNo=?", withArgumentsInArray: [studentInfo.Name, studentInfo.Marks, studentInfo.RollNo])
-        sharedInstance.database!.close()
-        return isUpdated
-    }
     func updateChatCounter(chat_id: Int, counterNuber:Int) -> Bool {
         sharedInstance.database!.open()
         let isUpdated = sharedInstance.database!.executeUpdate("UPDATE Chats SET count=? WHERE chat_id=?", withArgumentsInArray: [counterNuber,chat_id])
@@ -48,9 +41,9 @@ class ModelManager: NSObject {
         sharedInstance.database!.close()
         return isUpdated
     }
-    func deleteStudentData(studentInfo: StudentInfo) -> Bool {
+    func deleteStudentData(chat_id: String) -> Bool {
         sharedInstance.database!.open()
-        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM student_info WHERE RollNo=?", withArgumentsInArray: [studentInfo.RollNo])
+        let isDeleted = sharedInstance.database!.executeUpdate("DELETE FROM Chats WHERE chat_id=?", withArgumentsInArray: [chat_id])
         sharedInstance.database!.close()
         return isDeleted
     }

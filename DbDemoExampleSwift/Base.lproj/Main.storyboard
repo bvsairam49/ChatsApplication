@@ -60,7 +60,7 @@
                                         </label>
                                         <button opaque="NO" tag="1000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOW-VB-KNb">
                                             <rect key="frame" x="8" y="12" width="100" height="100"/>
-                                            <state key="normal" image="list3Photo"/>
+                                            <state key="normal" backgroundImage="list3Photo"/>
                                             <connections>
                                                 <action selector="photoSelectButonClick:" destination="X2Z-fl-vql" eventType="touchUpInside" id="F0b-ZK-ETM"/>
                                             </connections>

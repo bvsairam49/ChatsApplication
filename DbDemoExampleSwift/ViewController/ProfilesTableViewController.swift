@@ -13,17 +13,15 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
 
     var chatsArray : NSMutableArray!
     var imagePicker = UIImagePickerController()
+    var indexPath:NSIndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         chatsArray = NSMutableArray()
         imagePicker.delegate = self
-        
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
+
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,10 +58,11 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
 
         let chat:Chat = chatsArray.objectAtIndex(indexPath.row) as! Chat
         
-        let decodedData = NSData(base64EncodedString: chat.image, options: NSDataBase64DecodingOptions(rawValue: 0))
-        let decodedimage = UIImage(data: decodedData!)
-    
-        imageButton.setBackgroundImage(decodedimage! as UIImage, forState: UIControlState.Normal)
+        var decodedimage:UIImage = UIImage(named: "list1Photo")!
+        if let decodedData = NSData(base64EncodedString: chat.image, options: NSDataBase64DecodingOptions(rawValue: 0)){
+            decodedimage = UIImage(data: decodedData)!
+        }
+        imageButton.setBackgroundImage(decodedimage as UIImage, forState: UIControlState.Normal)
         nameLable.text  = chat.name
         descrLable.text = chat.descr
         timeLable.text = chat.time
@@ -89,16 +88,41 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
             self.presentViewController(imagePicker, animated: false, completion: nil)
         }
     }
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let chat:Chat = self.chatsArray.objectAtIndex((indexPath.row)) as! Chat
         ModelManager.getInstance().updateChatCounter(chat.chat_id, counterNuber: chat.counnter+1)
         self.refreshView()
     }
+  
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        
+        let editAction = UITableViewRowAction(style: .Default, title: "Edit",handler: { (action: UITableViewRowAction!,indexPath: NSIndexPath!) in
+            
+            // maybe show an action sheet with more options
+            self.tableView.setEditing(false, animated: false)
+            
+            
+            }
+        );
+        let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete",
+            handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+                
+                
+                //self.deleteModelAt(indexPath.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic);
+            }
+        );
+        return [deleteAction, editAction]
+
+    }
     //MARK: UIButton Action methods
-    
     @IBAction func btnDeleteClicked(sender: AnyObject) {
-        let btnDelete : UIButton = sender as! UIButton
+        /*let btnDelete : UIButton = sender as! UIButton
         let selectedIndex : Int = btnDelete.tag
         let studentInfo: StudentInfo = chatsArray.objectAtIndex(selectedIndex) as! StudentInfo
         let isDeleted = ModelManager.getInstance().deleteStudentData(studentInfo)
@@ -107,7 +131,7 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
         } else {
             Util.invokeAlertMethod("", strBody: "Error in deleting record.", delegate: nil)
         }
-        self.refreshView()
+        self.refreshView()*/
     }
     
     @IBAction func btnEditClicked(sender: AnyObject)
@@ -116,6 +140,13 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
     }
     
     @IBAction func photoSelectButonClick(sender: AnyObject){
+        
+        
+        let point = self.tableView.convertPoint(CGPointZero, fromView: sender as? UIButton)
+        if let indexPath = tableView.indexPathForRowAtPoint(point){
+            self.indexPath = indexPath
+        }
+        
         
         // 1
         let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
@@ -126,7 +157,7 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
             
             self.showCamera()
         })
-        let saveAction = UIAlertAction(title: "Galler", style: .Default, handler: {
+        let saveAction = UIAlertAction(title: "Gallery", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             
             self.showGallery()
@@ -157,17 +188,14 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
             let image = info[UIImagePickerControllerOriginalImage] as? UIImage
             
             let imageData = UIImagePNGRepresentation(image!) //OR with path var url:NSURL = NSURL(string : "urlHere")!
-            let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+            let base64String = imageData!.base64EncodedStringWithOptions(
+                NSDataBase64EncodingOptions(rawValue: 0))
             
-            let indexPath = self.tableView.indexPathForSelectedRow
 
-            let chat:Chat = self.chatsArray.objectAtIndex((indexPath!.row)) as! Chat
+            let chat:Chat = self.chatsArray.objectAtIndex((self.indexPath!.row)) as! Chat
             ModelManager.getInstance().updateChatImage(chat.chat_id, image:base64String )
             self.refreshView()
         }
-        
-        
-     
         
     }
     //MARK: Navigation methods
@@ -175,11 +203,7 @@ class ProfilesTableViewController: UITableViewController , UIImagePickerControll
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "editSegue")
         {
-            let btnEdit : UIButton = sender as! UIButton
-            let selectedIndex : Int = btnEdit.tag
-            let viewController : InsertRecordViewController = segue.destinationViewController as! InsertRecordViewController
-            viewController.isEdit = true
-            viewController.studentData = chatsArray.objectAtIndex(selectedIndex) as! StudentInfo
+         
         }
     }
     

@@ -23,8 +23,6 @@
 		EAD5F5231B7A0ADE00EBC695 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5F51E1B7A0ADE00EBC695 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EAD5F5241B7A0ADE00EBC695 /* fmdb.txt in Resources */ = {isa = PBXBuildFile; fileRef = EAD5F51F1B7A0ADE00EBC695 /* fmdb.txt */; };
 		EAD5F5251B7A0ADE00EBC695 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5F5211B7A0ADE00EBC695 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		EAD5F52C1B7A126200EBC695 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5F52B1B7A126200EBC695 /* HomeScreenViewController.swift */; };
-		EAD5F52E1B7A127800EBC695 /* InsertRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5F52D1B7A127800EBC695 /* InsertRecordViewController.swift */; };
 		EAD5F5311B7A18D800EBC695 /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD5F5301B7A18D800EBC695 /* StudentCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +61,6 @@
 		EAD5F5201B7A0ADE00EBC695 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		EAD5F5211B7A0ADE00EBC695 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		EAD5F5261B7A0B6F00EBC695 /* DbDemoExampleSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DbDemoExampleSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		EAD5F52B1B7A126200EBC695 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
-		EAD5F52D1B7A127800EBC695 /* InsertRecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertRecordViewController.swift; sourceTree = "<group>"; };
 		EAD5F5301B7A18D800EBC695 /* StudentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,8 +156,6 @@
 		EAD5F4F91B7A078D00EBC695 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EAD5F52B1B7A126200EBC695 /* HomeScreenViewController.swift */,
-				EAD5F52D1B7A127800EBC695 /* InsertRecordViewController.swift */,
 				33840CAF1C2D63AC001B2BA7 /* ProfilesTableViewController.swift */,
 			);
 			path = ViewController;
@@ -306,13 +300,11 @@
 			files = (
 				EAD5F5041B7A080700EBC695 /* Util.swift in Sources */,
 				33840CB21C2D6744001B2BA7 /* Chat.swift in Sources */,
-				EAD5F52C1B7A126200EBC695 /* HomeScreenViewController.swift in Sources */,
 				EAD5F4CB1B7A073200EBC695 /* AppDelegate.swift in Sources */,
 				EAD5F5021B7A080700EBC695 /* ModelManager.swift in Sources */,
 				EAD5F5221B7A0ADE00EBC695 /* FMDatabase.m in Sources */,
 				EAD5F5311B7A18D800EBC695 /* StudentCell.swift in Sources */,
 				EAD5F5251B7A0ADE00EBC695 /* FMResultSet.m in Sources */,
-				EAD5F52E1B7A127800EBC695 /* InsertRecordViewController.swift in Sources */,
 				EAD5F5031B7A080700EBC695 /* StudentInfo.swift in Sources */,
 				EAD5F5231B7A0ADE00EBC695 /* FMDatabaseAdditions.m in Sources */,
 				33840CB01C2D63AC001B2BA7 /* ProfilesTableViewController.swift in Sources */,
