@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         Util.copyFile("Chats.sqlite")
         
-        
-        
+    ///hey hello
         
         return true
     }
